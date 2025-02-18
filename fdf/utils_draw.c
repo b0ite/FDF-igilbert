@@ -6,11 +6,32 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 11:09:30 by igilbert          #+#    #+#             */
-/*   Updated: 2025/02/13 11:43:27 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/18 10:58:46 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+int	create_gradient(t_map p1, t_map p2, int x)
+{
+	float	percent;
+	int		red;
+	int		green;
+	int		blue;
+
+	if (p1.color == p2.color)
+		return (p1.color);
+	if (p1.x_proj == p2.x_proj)
+		return (p1.color);
+	percent = (float)(x - p1.x_proj) / (p2.x_proj - p1.x_proj);
+	red = (int)((p1.color >> 16) + percent * ((p2.color >> 16)
+				- (p1.color >> 16)));
+	green = (int)((p1.color >> 8 & 0xFF) + percent * ((p2.color >> 8 & 0xFF)
+				- (p1.color >> 8 & 0xFF)));
+	blue = (int)((p1.color & 0xFF) + percent * ((p2.color & 0xFF)
+				- (p1.color & 0xFF)));
+	return ((red << 16) | (green << 8) | blue);
+}
 
 void	fdf_offset_init(t_offset *offset)
 {

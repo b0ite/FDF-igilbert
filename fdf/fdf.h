@@ -6,14 +6,14 @@
 /*   By: igilbert <igilbert@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/14 17:18:53 by tcarlier          #+#    #+#             */
-/*   Updated: 2025/02/13 11:37:58 by igilbert         ###   ########.fr       */
+/*   Updated: 2025/02/18 11:55:16 by igilbert         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "./mlx_linux/mlx.h"
+# include "./mlx/mlx.h"
 # include <math.h>
 # include <stdio.h>
 # include <stdlib.h>
